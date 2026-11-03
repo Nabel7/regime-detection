@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+.venv/
+*.pkl
+.DS_Store
+
+# Data is fetched by the example scripts, never committed
+examples/data/
+*.csv
+*.parquet
+*.xlsx

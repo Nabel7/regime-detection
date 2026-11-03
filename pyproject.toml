@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "regime-detection"
+version = "0.1.0"
+description = "Market regime detection with Gaussian HMMs, explicit-duration HSMMs and sparse jump models, with leakage-safe walk-forward backtesting"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Nabel Sodipe" }]
+keywords = ["regime detection", "hidden markov model", "hidden semi-markov model", "jump model", "time series", "quant finance"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scikit-learn>=1.1",
+    "hmmlearn>=0.3.0",
+    "scipy>=1.9",
+    "jumpmodels>=0.1.1",
+]
+
+[project.optional-dependencies]
+viz = ["matplotlib>=3.6", "seaborn>=0.12"]
+dev = ["pytest>=7.2", "ruff>=0.6", "pre-commit>=3.5", "matplotlib>=3.6", "seaborn>=0.12"]
+
+[project.urls]
+Repository = "https://github.com/Nabel7/regime-detection"
+
+[tool.setuptools.packages.find]
+include = ["regime_detection*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
